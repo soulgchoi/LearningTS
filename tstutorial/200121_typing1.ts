@@ -85,3 +85,33 @@ function error(message: string): never {
     throw new Error(message);
 }
 
+// 타입은 소문자, 대문자를 구별하므로 주의해야 한다.
+// string: primitive 타입 문자열
+let primiteveStr: string;
+primiteveStr = 'hello';
+// primiteveStr = new String('hello');  // Error
+/* 
+    'String' 형식은 'string' 형식에 할당할 수 없습니다.
+    string'은(는) 기본 개체이지만 'String'은(는) 래퍼 개체입니다.
+    가능한 경우 'string'을(를) 사용하세요.
+*/
+
+// String: String 생성자 함수로 생성된 String 래퍼 객체 타입
+let objectStr: String;
+objectStr = 'hello';
+objectStr = new String('hello');
+
+/*
+    string < String 할당   # 에러
+    string > Stirng 할당   # 가능
+*/
+
+// Date 타입
+const today: Date = new Date();
+
+// HTMLElement 타입
+const elem: HTMLElement = document.getElementById('myId');
+
+class Person {}
+// Person 타입
+const person: Person = new Person();
